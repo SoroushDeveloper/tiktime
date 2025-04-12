@@ -10,9 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('verification_codes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('phone_number');
+            $table->integer('code');
+            $table->dateTime('expired_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -23,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('verification_codes');
     }
 };

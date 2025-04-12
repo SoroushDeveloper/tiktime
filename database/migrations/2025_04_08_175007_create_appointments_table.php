@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,9 +18,9 @@ return new class extends Migration
             $table->datetime('date_time');
             $table->text('self_description')->nullable();
             $table->text('customer_description')->nullable();
-            $table->bool('reservation_sms');
-            $table->bool('deposit');
-            $table->bool('reminder_sms');
+            $table->boolean('reservation_sms');
+            $table->boolean('deposit');
+            $table->boolean('reminder_sms');
             $table->json('services');
             $table->timestamps();
         });
