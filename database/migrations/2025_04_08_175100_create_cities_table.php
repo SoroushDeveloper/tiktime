@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('state_id')->index();
+            $table->foreignUuid('state_id')->index();
 
             $table->string('name');
 

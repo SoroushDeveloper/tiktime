@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->index();
+            $table->foreignUuid('user_id')->index();
 
             $table->enum('type', ['system', 'reserve', 'survey']);
             $table->string('title');

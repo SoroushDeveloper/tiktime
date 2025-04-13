@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('surveys', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->index();
-            $table->foreignId('scheduled_survey_id')->nullable()->index();
+            $table->foreignUuid('user_id')->index();
+            $table->foreignUuid('scheduled_survey_id')->nullable()->index();
 
             $table->integer('score');
             $table->text('message')->nullable();

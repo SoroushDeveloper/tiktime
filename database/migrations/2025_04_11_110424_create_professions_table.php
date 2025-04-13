@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('professions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('parent_id')->nullable()->index()->references('id')->on('professions');
+            $table->foreignUuid('parent_id')->nullable()->index()->references('id')->on('professions');
 
             $table->string('title');
 
