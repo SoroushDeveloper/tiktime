@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('catalogues', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
+
             $table->enum('type', ['customers_group', 'introduction']);
             $table->string('title');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('websites', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
+
             $table->string('domain');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

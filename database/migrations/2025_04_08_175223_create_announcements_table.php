@@ -12,9 +12,11 @@ return new class extends Migration {
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->uuid('id')->primary();
+
             $table->string('title');
             $table->text('body');
             $table->string('link')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

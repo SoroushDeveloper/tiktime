@@ -12,8 +12,10 @@ return new class extends Migration {
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('state_id');
+            $table->foreignId('state_id')->index();
+
             $table->string('name');
+
             $table->softDeletes();
             $table->timestamps();
         });

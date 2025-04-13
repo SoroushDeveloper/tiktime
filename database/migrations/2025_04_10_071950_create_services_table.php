@@ -12,8 +12,10 @@ return new class extends Migration {
     {
         Schema::create('services', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
+
             $table->string('title');
+
             $table->softDeletes();
             $table->timestamps();
         });

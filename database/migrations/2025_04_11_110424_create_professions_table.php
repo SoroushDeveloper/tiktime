@@ -12,8 +12,10 @@ return new class extends Migration {
     {
         Schema::create('professions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('parent_id');
+            $table->foreignId('parent_id')->nullable()->index()->references('id')->on('professions');
+
             $table->string('title');
+
             $table->softDeletes();
             $table->timestamps();
         });

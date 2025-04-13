@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('active_sessions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
+
             $table->string('device_name');
             $table->string('mac_address');
             $table->string('ip');
             $table->string('os');
+
             $table->datetime('logged_in_at');
             $table->datetime('last_seen_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

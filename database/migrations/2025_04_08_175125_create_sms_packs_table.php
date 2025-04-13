@@ -11,10 +11,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('sms_packs', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+
             $table->integer('amount');
             $table->string('price');
             $table->integer('discount')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

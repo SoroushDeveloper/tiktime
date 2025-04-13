@@ -12,13 +12,13 @@ return new class extends Migration {
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
 
             $table->string('owner_name')->nullable();
             $table->enum('gender', ['none', 'male', 'female'])->default('none');
             $table->date('birth_date')->nullable();
-            $table->uuid('profession_id');
-            $table->uuid('city_id')->nullable();
+            $table->foreignId('profession_id')->nullable()->index();
+            $table->foreignId('city_id')->nullable()->index();
             $table->string('description')->nullable();
             $table->string('instagram')->nullable();
             $table->string('whatsapp')->nullable();

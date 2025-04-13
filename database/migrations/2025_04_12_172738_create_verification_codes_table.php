@@ -12,9 +12,11 @@ return new class extends Migration {
     {
         Schema::create('verification_codes', function (Blueprint $table) {
             $table->uuid('id')->primary();
+
             $table->string('phone_number');
             $table->integer('code');
             $table->dateTime('expired_at')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

@@ -12,9 +12,11 @@ return new class extends Migration {
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->uuid('id')->primary();
+
             $table->enum('type', ['website', 'support', 'financial']);
             $table->string('title');
             $table->text('body');
+
             $table->softDeletes();
             $table->timestamps();
         });

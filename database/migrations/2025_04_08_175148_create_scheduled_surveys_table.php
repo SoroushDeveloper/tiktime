@@ -12,9 +12,12 @@ return new class extends Migration {
     {
         Schema::create('scheduled_surveys', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->foreignId('user_id')->index();
+
             $table->text('text');
             $table->integer('start_after');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

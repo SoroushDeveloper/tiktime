@@ -12,9 +12,12 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
+
             $table->string('brand_name');
             $table->string('phone_number');
             $table->rememberToken();
+
+            $table->softDeletes();
             $table->timestamps();
         });
 
